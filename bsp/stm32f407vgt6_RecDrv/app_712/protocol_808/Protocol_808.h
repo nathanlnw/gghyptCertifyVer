@@ -77,6 +77,7 @@
 #define   MSG_0x8001           0x8001      // 平台通用应答
 #define   MSG_0x0002           0x0002      // 终端心跳 
 #define   MSG_0x0100           0x0100      // 终端注册
+#define   MSG_0x0110           0x0110      // 使用前锁定2 
 #define   MSG_0x8100           0x8100      // 终端注册应答
 #define   MSG_0x0003           0x0003      // 终端注销
 #define   MSG_0x0102           0x0102      // 终端鉴权
@@ -1114,6 +1115,7 @@ extern ALIGN(RT_ALIGN_SIZE) u8          GPRS_info[3000];
 extern u16         GPRS_infoWr_Tx;
 
 
+extern u8  Buf_700H_buffer[700]; 
 //------ phone
 extern u8       CallState; // 通话状态
 
@@ -1435,6 +1437,20 @@ extern void  RAW_TransInit(void);
 extern u8    Stuff_DataTrans_0900_BD_Serial1(void);
 extern u8    Stuff_DataTrans_0900_BD_Serial2(void);
 extern  void  warn_msg_sd(void);
+
+
+extern uint8_t get_08h( uint8_t *pout );
+extern uint8_t get_09h( uint8_t *pout );  
+extern uint8_t get_10h( uint8_t *pout );  
+extern uint8_t get_11h( uint8_t *pout );  
+extern uint8_t get_12h( uint8_t *pout );  
+extern uint8_t get_13h( uint8_t *pout );  
+extern uint8_t get_14h( uint8_t *pout ); 
+extern uint8_t get_15h( uint8_t *pout );  
+
+
+
+
 
 
 //==================================================================================================

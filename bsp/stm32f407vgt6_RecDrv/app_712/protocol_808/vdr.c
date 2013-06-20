@@ -1157,11 +1157,11 @@ uint8_t get_08h( uint8_t *pout )
 	uint8_t			buf[128], data[135];
 	uint8_t			*p = RT_NULL, *pdump;
 	int				i, j, k;
-#ifdef DBG_VDR
-	p = testbuf;
-#else
+//#ifdef DBG_VDR
+//	p = testbuf;
+//#else
 	p = pout;
-#endif
+//#endif
 
 	for( i = 0; i < 5; i++ )
 	{
@@ -1185,7 +1185,7 @@ uint8_t get_08h( uint8_t *pout )
 			buf[j * 2 + 6]	= data[j];
 			buf[j * 2 + 7]	= data[60 + j];
 		}
-		memcpy( pout + i * 126, buf, 126 );
+		memcpy(pout+i*126, buf, 126 );
 
 		count_08++;
 		if( min_08 == 0 )
@@ -1203,7 +1203,7 @@ uint8_t get_08h( uint8_t *pout )
 		}
 
 #ifdef  DBG_VDR                                       /*调试输出*/
-		pdump = buf;
+		pdump=buf;
 		rt_kprintf( "\r\nVDR>08H(%d) 13-%02d-%02d %02d:%02d \r\n", count_08, month_08, day_08, hour_08, min_08 );
 		for( j = 0; j < 6; j++ )
 		{
@@ -1240,10 +1240,10 @@ uint8_t get_09h( uint8_t *pout )
 	uint8_t			buf[128], data[135];
 	uint8_t			*p = RT_NULL;
 	int				i, j, k;
-#ifdef DBG_VDR
-	pout = testbuf;
-#endif
-	p = pout;
+//#ifdef DBG_VDR
+	//pout = testbuf;
+//#endif
+	p = pout; 
 
 	if( addr_09 >= VDR_08H_09H_END )
 	{
@@ -1268,7 +1268,7 @@ uint8_t get_09h( uint8_t *pout )
 		decompress_data( buf, data );
 		for( j = 0; j < 60; j++ )
 		{
-			if( data[60 + j] & 0x01 )   /*看是不是有速度*/
+			if( data[60 + j] & 0x01 )   /*看是不是有速度*/   
 			{
 				break;
 			}
@@ -1320,9 +1320,9 @@ uint8_t get_10h( uint8_t *pout )
 	uint8_t			buf[240];
 	uint8_t			*p;
 	uint32_t			i;
-#ifdef DBG_VDR
-	pout = testbuf;
-#endif
+//#ifdef DBG_VDR
+//	pout = testbuf;
+//#endif
 	p = pout;
 
 	if( addr_10 > VDR_10H_END )
@@ -1363,9 +1363,9 @@ uint8_t get_11h( uint8_t *pout )
 	uint8_t			*p = RT_NULL;
 	uint32_t			i, j;
 
-#ifdef DBG_VDR
-	pout = testbuf;
-#endif
+//#ifdef DBG_VDR
+//	pout = testbuf;
+//#endif
 	p = pout;
 
 	if( addr_11 > VDR_11H_END )
@@ -1409,9 +1409,9 @@ uint8_t get_12h( uint8_t *pout )
 	uint8_t			buf[26];
 	uint8_t			*p;
 	uint32_t			i, j;
-#ifdef DBG_VDR
-	pout = testbuf;
-#endif
+//#ifdef DBG_VDR
+//	pout = testbuf;
+//#endif
 	p = pout;
 
 	if( addr_12 > VDR_12H_END )
@@ -1451,9 +1451,9 @@ uint8_t get_13h( uint8_t *pout )
 	uint8_t			buf[8];
 	uint8_t			*p;
 	uint32_t		i, j;
-#ifdef DBG_VDR
-	pout = testbuf;
-#endif
+//#ifdef DBG_VDR
+	//pout = testbuf;
+//#endif
 	p = pout;
 
 	if( addr_13 > VDR_13H_END )
@@ -1494,9 +1494,9 @@ uint8_t get_14h( uint8_t *pout )
 	uint8_t			buf[8];
 	uint8_t			*p;
 	uint32_t		i, j;
-#ifdef DBG_VDR
-	pout = testbuf;
-#endif
+//#ifdef DBG_VDR
+//	pout = testbuf;
+//#endif
 	p = pout;
 	if( addr_14 > VDR_14H_END )
 	{
@@ -1538,9 +1538,9 @@ uint8_t get_15h( uint8_t *pout )
 	uint8_t			buf[140];
 	uint8_t			*p;
 	uint32_t			i, j;
-#ifdef DBG_VDR
-	pout = testbuf;
-#endif
+//#ifdef DBG_VDR
+	//pout = testbuf;
+//#endif
 	p = pout;
 
 	if( addr_15 > VDR_15H_END )
